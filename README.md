@@ -1,3 +1,24 @@
+## Dockerfile
+
+FROM node:20-alpine
+COPY . /deploy
+WORKDIR /deploy
+EXPOSE 3000
+ENTRYPOINT npm run start
+
+
+## docker-compose.yml
+
+version: "3.3"
+services:
+  nextjs-demo:
+    container_name: nextjs-demo
+    image: demo/nextjs-demo
+    ports:
+      - "3000:3000"
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
